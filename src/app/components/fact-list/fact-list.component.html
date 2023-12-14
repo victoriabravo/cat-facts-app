@@ -1,0 +1,43 @@
+<section>
+  <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <ng-container *ngFor="let col of displayedColumns" [matColumnDef]="col">
+      <mat-header-cell *matHeaderCellDef> {{col | uppercase}} </mat-header-cell>
+				<mat-cell *matCellDef="let element ; let i = index ">
+          <ng-container *ngIf="col == 'image'">
+            <img [src]="srcImage + (70 + i)"  alt="Cat photo">
+          </ng-container>
+          <ng-container *ngIf="col != 'image'">
+            {{element[col]}}
+          </ng-container>
+				</mat-cell>
+    </ng-container>
+    <!-- img Column -->
+    <!-- <ng-container matColumnDef="image">
+      <mat-header-cell *matHeaderCellDef > IMAGE </mat-header-cell>
+      <mat-cell *matCellDef="let fact; let i = index"> 
+        <img [src]="srcImage + (70 + i)"  alt="Cat photo">  
+      </mat-cell>
+    </ng-container> -->
+
+    <!-- title Column -->
+    <!-- <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef> FACT </mat-header-cell>
+      <mat-cell *matCellDef="let fact"> {{fact.fact}} </mat-cell>
+    </ng-container> -->
+
+    <!-- length Column -->
+    <!-- <ng-container matColumnDef="length">
+      <mat-header-cell *matHeaderCellDef> LENGTH </mat-header-cell>
+      <mat-cell *matCellDef="let fact"> {{fact.length}} </mat-cell>
+    </ng-container> -->
+
+    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns; let i= index" (click)="openDetail(row)"
+     matTooltip="Click to see details"></mat-row>
+  </mat-table>
+</section>>
+<mat-paginator #paginator [length]="totalLength" [pageSize]="pageSize" [pageIndex]="page"
+    (page)="onPagination($event)">
+</mat-paginator>
+  

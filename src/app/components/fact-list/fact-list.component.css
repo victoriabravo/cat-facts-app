@@ -1,0 +1,23 @@
+section{
+    margin: auto;
+    width: 95%;
+}
+mat-table{
+    margin-top: 1rem;
+    justify-content: center;
+}
+mat-header-cell{
+    justify-content: center;
+    background-color: #f7ecec;
+    color: #101010;
+}
+
+mat-cell {
+    overflow: hidden;
+    width:auto;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}
+.mat-column-image, .mat-column-length{
+    justify-content: center;
+}
